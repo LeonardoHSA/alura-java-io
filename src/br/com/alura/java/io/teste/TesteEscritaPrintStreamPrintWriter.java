@@ -1,14 +1,17 @@
 package br.com.alura.java.io.teste;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.io.PrintStream;
+import java.io.PrintWriter;
 import java.io.Writer;
 
-public class TesteEscrita3 {
+public class TesteEscritaPrintStreamPrintWriter {
 	public static void main(String[] args) throws IOException {
 		
 
@@ -18,13 +21,16 @@ public class TesteEscrita3 {
 //		Writer osw = new OutputStreamWriter(fos); 
 //		BufferedWriter bw = new BufferedWriter(osw); 
 		
-		FileWriter fw = new FileWriter("lorem2.txt");
-		BufferedWriter bw = new BufferedWriter(fw);
-		bw.write("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ");
-//		fw.write(System.lineSeparator()); // devolve os caracteres especiais para pular um linha
-		bw.newLine();
-		bw.write("olá");
+//		BufferedWriter bw = new BufferedWriter(new FileWriter("lorem2.txt"));
+//		PrintStream ps = new PrintStream(new File("lorem2.txt"));
 		
-		bw.close(); 
+		PrintWriter ps = new PrintWriter("lorem.txt");
+		
+		ps.println("olá");
+		ps.println();
+		ps.println();
+		ps.println("tchau");
+		
+		ps.close();
 	}
 }
